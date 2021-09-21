@@ -1,22 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import ActionCard from './components/ActionCard';
+import SideMenu from './components/SideMenu';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <SideMenu title="hej">
+        </SideMenu>
+        <ActionCard title="hej">
+        </ActionCard>
       </header>
     </div>
   );

@@ -1,24 +1,26 @@
-let previousMs = 0;
-let gameSpeed = 1;
-let increment = 0.0;
-export let index = 0;
-
-function main(ms) { 
-    window.requestAnimationFrame(main);
-    const delta = ms - previousMs;
-    previousMs = ms;
-    loop(delta);
-  };
-  
+let previousMs;
+export const index = 5;
 
 function loop(ms) {
-    //runs at monitor refresh rate
-    increment += ms;
-    index = Math.round(increment / 100.0) % 6;
+  // runs at monitor refresh rate
+  console.log(ms);
+}
+
+function main(ms) {
+  if (previousMs === undefined) {
+    previousMs = ms;
+  }
+  window.requestAnimationFrame(main);
+  const delta = ms - previousMs;
+  previousMs = ms;
+  loop(delta);
 }
 
 function start() {
-    main(0);
+  // initialize game code
+
+  // starts the game update / draw loop
+  window.requestAnimationFrame(main);
 }
 
 export default start;

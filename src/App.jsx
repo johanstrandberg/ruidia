@@ -9,7 +9,7 @@ function App(props) {
     <div className="App">
       <header className="App-header">
         <ActionCard title="hejsan" />
-        <SideMenu tab={game} />
+        <SideMenu tab={1} />
       </header>
     </div>
   );

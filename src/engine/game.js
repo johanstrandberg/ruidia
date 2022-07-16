@@ -1,26 +1,29 @@
-let previousMs;
-export const index = 5;
-
-function loop(ms) {
-  // runs at monitor refresh rate
-  console.log(ms);
-}
-
-function main(ms) {
-  if (previousMs === undefined) {
-    previousMs = ms;
+class Game {
+  constructor() {
+    this.previousMs = undefined;
   }
-  window.requestAnimationFrame(main);
-  const delta = ms - previousMs;
-  previousMs = ms;
-  loop(delta);
+
+  loop(ms) {
+    // runs at monitor refresh rate
+    console.log(ms);
+  }
+
+  main(ms) {
+    if (this.previousMs === undefined) {
+      this.previousMs = ms;
+    }
+    window.requestAnimationFrame((totalms) => this.main(totalms));
+    const delta = ms - this.previousMs;
+    this.previousMs = ms;
+    this.loop(delta);
+  }
+
+  start() {
+    // initialize game code
+
+    // starts the game update / draw loop
+    window.requestAnimationFrame((ms) => this.main(ms));
+  }
 }
 
-function start() {
-  // initialize game code
-
-  // starts the game update / draw loop
-  window.requestAnimationFrame(main);
-}
-
-export default start;
+export default Game;

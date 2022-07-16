@@ -2,17 +2,18 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
-import start, { index } from './engine/game';
+import Game from './engine/game';
+
+const game = new Game();
+game.start();
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <App game={index} />
+    <App game={game} />
   </React.StrictMode>,
 );
-
-start();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

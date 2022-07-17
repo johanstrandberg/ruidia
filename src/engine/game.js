@@ -1,4 +1,8 @@
+import ActionManager from './actions/actionManager';
+
 class Game {
+  actionManager = new ActionManager();
+
   constructor() {
     this.previousMs = undefined;
   }
@@ -6,6 +10,9 @@ class Game {
   loop(ms) {
     // runs at monitor refresh rate
     console.log(ms);
+
+    // update the game state
+    this.actionManager.update(ms);
   }
 
   main(ms) {

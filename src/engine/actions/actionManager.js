@@ -6,6 +6,7 @@ class ActionManager {
   constructor() {
     this.actions = [];
     this.actions.push(new Action('Think', 'Consider your state and your surroundings', 'mental'));
+    this.setCurrentAction(this.actions[0]);
   }
 
   setCurrentAction(action) {

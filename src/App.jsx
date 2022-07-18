@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import ActionCard from './components/ActionCard';
 import SideMenu from './components/SideMenu';
@@ -5,9 +6,13 @@ import GameContext from './gameContext';
 
 function App(props) {
   const { game } = props;
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
+  game.updateCallback = (ms) => { forceUpdate(); };
 
   return (
-    <GameContext.Provider value={game}>
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
+    <GameContext.Provider value={{ ...game }}>
       <div className="App">
         <header className="App-header">
           <ActionCard title="hejsan" />

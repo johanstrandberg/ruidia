@@ -4,6 +4,7 @@ import { gameSpeed } from './constants';
 class Game {
   actionManager = new ActionManager();
   totalMs = 0;
+  updateCallback = undefined;
 
   constructor() {
     this.previousMs = undefined;
@@ -14,6 +15,9 @@ class Game {
 
     // update the game state
     this.actionManager.update(ms * gameSpeed);
+    if (this.updateCallback) {
+      this.updateCallback(ms);
+    }
     this.totalMs += ms;
   }
 

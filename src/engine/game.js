@@ -1,7 +1,9 @@
 import ActionManager from './actions/actionManager';
+import { gameSpeed } from './constants';
 
 class Game {
   actionManager = new ActionManager();
+  totalMs = 0;
 
   constructor() {
     this.previousMs = undefined;
@@ -9,10 +11,10 @@ class Game {
 
   loop(ms) {
     // runs at monitor refresh rate
-    console.log(ms);
 
     // update the game state
-    this.actionManager.update(ms);
+    this.actionManager.update(ms * gameSpeed);
+    this.totalMs += ms;
   }
 
   main(ms) {

@@ -6,9 +6,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           transition: 'none',
+          height: '20px',
           span: {
             transition: 'none',
-            backgroundColor: 'green',
+            backgroundColor: 'blue',
           },
         },
       },

@@ -12,7 +12,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRightRounded';
 import MailIcon from '@mui/icons-material/Mail';
 
-export const mainListItems = ['Main', 'Starred', 'Send email', 'Drafts'];
+export const mainListItems = ['Main', 'Stats', 'Send', 'Drafts'];
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
